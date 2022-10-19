@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { Watchlist } from "./components/Watchlist";
 import { Watched } from "./components/Watched";
 import { Add } from "./components/Add";
+import Top from "./components/Top";
 import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
 
@@ -14,6 +15,7 @@ function App() {
     <GlobalProvider>
       <Router>
         <Header />
+
         <Switch>
           <Route exact path="/">
             <Watchlist />
@@ -23,6 +25,9 @@ function App() {
           </Route>
           <Route path="/watched">
             <Watched />
+          </Route>
+          <Route path="/top">
+            <Top />
           </Route>
         </Switch>
       </Router>

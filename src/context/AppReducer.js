@@ -1,22 +1,23 @@
-export default (state, action) => {
+import React from "react";
+const AppReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_MOVIE_TO_WATCHLIST":
+    case "ADD_TO_WATCHLIST":
       return {
         ...state,
         watchlist: [action.payload, ...state.watchlist],
       };
-    case "REMOVE_MOVIE_FROM_WATCHLIST":
+    case "REMOVE_FROM_WATCHLIST":
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (movie) => movie.id !== action.payload
+          (anime) => anime.mal_id !== action.payload
         ),
       };
-    case "ADD_MOVIE_TO_WATCHED":
+    case "ADD_TO_WATCHED":
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (movie) => movie.id !== action.payload.id
+          (anime) => anime.mal_id !== action.payload.mal_id
         ),
         watched: [action.payload, ...state.watched],
       };
@@ -24,16 +25,19 @@ export default (state, action) => {
       return {
         ...state,
         watched: state.watched.filter(
-          (movie) => movie.id !== action.payload.id
+          (anime) => anime.mal_id !== action.payload.mal_id
         ),
         watchlist: [action.payload, ...state.watchlist],
       };
     case "REMOVE_FROM_WATCHED":
       return {
         ...state,
-        watched: state.watched.filter((movie) => movie.id !== action.payload),
+        watched: state.watched.filter(
+          (anime) => anime.mal_id !== action.payload
+        ),
       };
     default:
       return state;
   }
 };
+export default AppReducer;

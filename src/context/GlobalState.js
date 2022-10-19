@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
 
-// initial state
 const initialState = {
   watchlist: localStorage.getItem("watchlist")
     ? JSON.parse(localStorage.getItem("watchlist"))
@@ -11,10 +10,8 @@ const initialState = {
     : [],
 };
 
-// create context
 export const GlobalContext = createContext(initialState);
 
-// provider components
 export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
@@ -23,25 +20,24 @@ export const GlobalProvider = (props) => {
     localStorage.setItem("watched", JSON.stringify(state.watched));
   }, [state]);
 
-  // actions
-  const addMovieToWatchlist = (movie) => {
-    dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
+  const addMovieToWatchlist = (anime) => {
+    dispatch({ type: "ADD_TO_WATCHLIST", payload: anime });
   };
 
-  const removeMovieFromWatchlist = (id) => {
-    dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
+  const removeMovieFromWatchlist = (mal_id) => {
+    dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: mal_id });
   };
 
-  const addMovieToWatched = (movie) => {
-    dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
+  const addMovieToWatched = (anime) => {
+    dispatch({ type: "ADD_TO_WATCHED", payload: anime });
   };
 
-  const moveToWatchlist = (movie) => {
-    dispatch({ type: "MOVE_TO_WATCHLIST", payload: movie });
+  const moveToWatchlist = (anime) => {
+    dispatch({ type: "MOVE_TO_WATCHLIST", payload: anime });
   };
 
-  const removeFromWatched = (id) => {
-    dispatch({ type: "REMOVE_FROM_WATCHED", payload: id });
+  const removeFromWatched = (mal_id) => {
+    dispatch({ type: "REMOVE_FROM_WATCHED", payload: mal_id });
   };
 
   return (

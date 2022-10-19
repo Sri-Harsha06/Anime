@@ -7,7 +7,7 @@ export const Header = () => {
       <div className="container">
         <div className="inner-content">
           <div className="brand">
-            <Link to="/">WatchList</Link>
+            <Link to="/">AnimeKeeper</Link>
           </div>
 
           <ul className="nav-links">
@@ -17,6 +17,10 @@ export const Header = () => {
 
             <li>
               <Link to="/watched">Watched</Link>
+            </li>
+
+            <li>
+              <Link to="/top">Top</Link>
             </li>
 
             <li>

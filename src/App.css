@@ -11,20 +11,13 @@ body {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  width: 1170px;
 }
 
-.container {
-    width: 1170px;
-  }
-
-
-* {
-  box-sizing: border-box;
-}
 
 .btn {
   padding: 10px 15px;
-  background-color:black;
+  background-color: black;
   color: white;
   border-radius: 5px;
   text-transform: uppercase;
@@ -36,8 +29,9 @@ body {
   line-height: 1.1;
 }
 
-input:focus {
-  outline: none;
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 header {
@@ -56,10 +50,6 @@ header a {
   font-size: 1.25rem;
   text-decoration: none;
   transition: all 0.3s ease;
-}
-
-header a:hover {
-  opacity: 0.7;
 }
 
 header .brand a {
@@ -92,11 +82,11 @@ header .nav-links li:last-child {
 
 .add-content .input-wrapper input {
   width: 100%;
-  background-color:black;
+  background-color: black;
   padding: 10px;
   border-radius: 5px;
   border: none;
-  color:white;
+  color: white;
   font-size: 1.25rem;
 }
 
@@ -142,7 +132,7 @@ header .nav-links li:last-child {
 .result-card .info .release-date {
   font-size: 1.25rem;
   font-weight: 300;
-  color:black;
+  color: black;
   margin: 0;
 }
 
@@ -150,11 +140,12 @@ header .nav-links li:last-child {
   margin-right: 10px;
 }
 
-.movie-page {
+/* anime Page */
+.anime-page {
   padding: 30px 0;
 }
 
-.movie-page .header {
+.anime-page .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -163,32 +154,30 @@ header .nav-links li:last-child {
 
 .count-pill {
   display: block;
-  background-color: red;
+  background-color: green;
   padding: 5px 15px;
   font-size: 1.125rem;
   font-weight: 600;
   border-radius: 999px;
-  color: white;
+  color: black;
 }
 
-.movie-page .heading {
+.anime-page .heading {
   color: black;
   margin: 0;
 }
 
-.movie-grid {
+.anime-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
-@media (min-width: 992px) {
-  .movie-grid {
+  .anime-grid {
     grid-template-columns: repeat(5, 1fr);
   }
-}
 
-.movie-card {
+.anime-card {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
@@ -197,12 +186,12 @@ header .nav-links li:last-child {
   display: block;
 }
 
-.movie-card img {
+.anime-card img {
   width: 100%;
   display: block;
 }
 
-.movie-card .overlay {
+.anime-card .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -212,11 +201,7 @@ header .nav-links li:last-child {
   transition: all 0.3s ease;
 }
 
-.movie-card:hover .overlay {
-  border: 3px solid var(--secondary);
-}
-
-.movie-card .inner-card-controls {
+.anime-card .inner-card-controls {
   display: inline;
   background-color: red;
   position: absolute;
@@ -230,6 +215,10 @@ header .nav-links li:last-child {
   transition: all 0.3s ease;
 }
 
+.anime-card:hover .inner-card-controls {
+  opacity: 1;
+}
+
 .ctrl-btn {
   color: #fefefe;
   background-color: transparent;
@@ -240,8 +229,4 @@ header .nav-links li:last-child {
   margin: 0;
 }
 
-.movie-page .no-movies {
-  color: #c4c4c4;
-  font-size: 3rem;
-  text-align: center;
-}
+
