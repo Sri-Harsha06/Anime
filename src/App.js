@@ -7,7 +7,7 @@ import { Add } from "./components/Add";
 import Top from "./components/Top";
 import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
-
+import Error from "./components/Error";
 import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
           <Route path="/top">
             <Top />
           </Route>
+          <Route component={Error} />
         </Switch>
       </Router>
     </GlobalProvider>
