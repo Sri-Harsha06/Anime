@@ -3,22 +3,22 @@ import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ anime }) => {
   const {
-    addMovieToWatchlist,
-    addMovieToWatched,
+    addToWatchlist,
+    addToWatched,
     watchlist,
     watched,
   } = useContext(GlobalContext);
   console.log(watchlist);
-  let storedMovie = watchlist.find((o) => o.mal_id === anime.mal_id);
-  let storedMovieWatched = watched.find((o) => o.mal_id === anime.mal_id);
+  let stored = watchlist.find((o) => o.mal_id === anime.mal_id);
+  let Watched = watched.find((o) => o.mal_id === anime.mal_id);
 
-  const watchlistDisabled = storedMovie
+  const watchlistDisabled = stored
     ? true
-    : storedMovieWatched
+    : Watched
     ? true
     : false;
 
-  const watchedDisabled = storedMovieWatched ? true : false;
+  const watchedDisabled = Watched ? true : false;
 
   return (
     <div className="result-card">
@@ -36,7 +36,7 @@ export const ResultCard = ({ anime }) => {
           <button
             className="btn"
             disabled={watchlistDisabled}
-            onClick={() => addMovieToWatchlist(anime)}
+            onClick={() => addToWatchlist(anime)}
           >
             Add to Watchlist
           </button>
@@ -44,7 +44,7 @@ export const ResultCard = ({ anime }) => {
           <button
             className="btn"
             disabled={watchedDisabled}
-            onClick={() => addMovieToWatched(anime)}
+            onClick={() => addToWatched(anime)}
           >
             Add to Watched
           </button>

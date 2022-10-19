@@ -1,4 +1,4 @@
-export const MovieCard2 = ({ anime }) => {
+export const Card2 = ({ anime }) => {
   return (
     <div className="anime-card">
       <div className="overlay"></div>

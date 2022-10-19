@@ -20,15 +20,15 @@ export const GlobalProvider = (props) => {
     localStorage.setItem("watched", JSON.stringify(state.watched));
   }, [state]);
 
-  const addMovieToWatchlist = (anime) => {
+  const addToWatchlist = (anime) => {
     dispatch({ type: "ADD_TO_WATCHLIST", payload: anime });
   };
 
-  const removeMovieFromWatchlist = (mal_id) => {
+  const removeFromWatchlist = (mal_id) => {
     dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: mal_id });
   };
 
-  const addMovieToWatched = (anime) => {
+  const addToWatched = (anime) => {
     dispatch({ type: "ADD_TO_WATCHED", payload: anime });
   };
 
@@ -45,9 +45,9 @@ export const GlobalProvider = (props) => {
       value={{
         watchlist: state.watchlist,
         watched: state.watched,
-        addMovieToWatchlist,
-        removeMovieFromWatchlist,
-        addMovieToWatched,
+        addToWatchlist,
+        removeFromWatchlist,
+        addToWatched,
         moveToWatchlist,
         removeFromWatched,
       }}

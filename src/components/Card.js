@@ -1,12 +1,12 @@
 import React from "react";
-import { MovieControls } from "./MovieControls";
+import { Controls } from "./Controls";
 
-export const MovieCard = ({ anime, type }) => {
+export const Card = ({ anime, type }) => {
   return (
     <div className="anime-card">
       <div className="overlay"></div>
       <img src={anime.images.jpg.image_url} alt={`${anime.title} Poster`} />
-      <MovieControls type={type} anime={anime} />
+      <Controls type={type} anime={anime} />
     </div>
   );
 };

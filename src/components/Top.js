@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MovieCard2 } from "./MovieCard2";
+import { Card2 } from "./Card2";
 const Top = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
@@ -17,7 +17,7 @@ const Top = () => {
         </div>
         <div className="anime-grid">
           {results.slice(0, 6).map((anime) => (
-            <MovieCard2 anime={anime} />
+            <Card2 anime={anime} />
           ))}
         </div>
       </div>

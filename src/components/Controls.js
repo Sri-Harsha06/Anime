@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
-export const MovieControls = ({ type, anime }) => {
+export const Controls = ({ type, anime }) => {
   const {
-    removeMovieFromWatchlist,
-    addMovieToWatched,
+    removeFromWatchlist,
+    addToWatched,
     moveToWatchlist,
     removeFromWatched,
   } = useContext(GlobalContext);
@@ -13,13 +13,13 @@ export const MovieControls = ({ type, anime }) => {
     <div className="inner-card-controls">
       {type === "watchlist" && (
         <>
-          <button className="ctrl-btn" onClick={() => addMovieToWatched(anime)}>
+          <button className="ctrl-btn" onClick={() => addToWatched(anime)}>
             <i className="fa-fw far fa-eye"></i>
           </button>
 
           <button
             className="ctrl-btn"
-            onClick={() => removeMovieFromWatchlist(anime.mal_id)}
+            onClick={() => removeFromWatchlist(anime.mal_id)}
           >
             <i className="fa-fw fa fa-times"></i>
           </button>
